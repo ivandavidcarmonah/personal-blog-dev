@@ -1,19 +1,109 @@
 
-<div class="container mt-2" >
-  <section>
-    <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-4 g-4 animated-rigth">
-      <div class="col animate__animated animate__backInRight" *ngFor="let data of listData">
-        <div class="card" (click)="irBlog(data)">
-          <img [src]="data.imagenHeader  | Imagen: 'developer-blog'" class="card-img-top" alt="...">
-          <div class="card-body">
-              <h5 class="card-title color-1 ">{{data.title}}</h5>
-              <p class="card-text">{{data.description  | slice : 0 : 40  }}</p>
-          </div>
-        </div>
+<div class="container mt-2 w-100" >
+
+
+
+  <section class="text-center mb-4">
+    <div class="row">
+      <div class="col-lg-3 col-md-6 mb-5 mb-md-5 mb-lg-0 position-relative">
+        <fa-icon [icon]="faCubes"></fa-icon>
+        <h5 class="text-info fw-bold mb-3">5000+</h5>
+        <h6 class="fw-normal mb-0">Components</h6>
+        <div class="vr vr-blurry position-absolute my-0 h-100 d-none d-md-block top-0 end-0"></div>
+      </div>
+  
+      <div class="col-lg-3 col-md-6 mb-5 mb-md-5 mb-lg-0 position-relative">
+        <fa-icon [icon]="faLayerGroup"></fa-icon>
+        <h5 class="text-info fw-bold mb-3">490+</h5>
+        <h6 class="fw-normal mb-0">Design blocks</h6>
+        <div class="vr vr-blurry position-absolute my-0 h-100 d-none d-md-block top-0 end-0"></div>
+      </div>
+  
+      <div class="col-lg-3 col-md-6 mb-5 mb-md-0 position-relative">
+        <fa-icon [icon]="faImage"></fa-icon>
+        <h5 class="text-info fw-bold mb-3">100+</h5>
+        <h6 class="fw-normal mb-0">Templates</h6>
+        <div class="vr vr-blurry position-absolute my-0 h-100 d-none d-md-block top-0 end-0"></div>
+      </div>
+  
+      <div class="col-lg-3 col-md-6 mb-5 mb-md-0 position-relative">
+        <fa-icon [icon]="faPlug"></fa-icon>
+        <h5 class="text-info fw-bold mb-3">28</h5>
+        <h6 class="fw-normal mb-0">Plugins</h6>
       </div>
     </div>
-
   </section>
-    
-    
+
+
 </div>
+
+
+
+
+
+
+
+
+<section class="w-100 section">
+  <div class="row animated-rigth">
+    <div class="col-12 col-lg-7 col-xl-8">
+
+        <div class="card mb-3 w-100 " *ngFor="let data of listData">
+          <div class="row">
+            <div class="col-12 col-xl-3 img-container ">
+              <img [src]="data.imagenHeader  | Imagen: 'developer-blog'" class="rounded-start" alt="{{data.title}} "  (click)="irBlog(data)">
+            </div>
+            <div class="col-12 col-xl-9 ">
+                <h5 class="card-title" (click)="irBlog(data)">{{data.title}}</h5>
+                <p class="card-text">{{data.description | slice: 0:200 }}</p>
+                <small class="card-footer">
+                  <div class="d-flex align-items-center">
+                      <img class="avatar" alt=""  src="./../../../../assets/img/perfil.jpg" width="22" height="22" loading="lazy">
+                      &nbsp;<i> Ivan David Carmona Herrera</i>
+                       <p class="card-text"><small class="text-muted">&nbsp;&nbsp;{{data.creation_date | date: 'medium'}}</small></p>
+                  </div>
+                 
+                </small>
+            </div>
+          
+          </div>
+        </div>
+
+    </div>
+    <div class="col-12 col-lg-5 col-xl-4">
+        <div class="list-group ">
+            <a (click)="irBlog(data)" class="list-group-item list-group-item-action pointer" aria-current="true" *ngFor="let data of listData">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{{data.title}}</h5>
+                <small>{{data.creation_date | date: 'shortDate'}}</small>
+              </div>
+
+
+              <p class="mb-1">{{data.description  | slice : 0 : 25  }}</p>
+              <small>
+                <div class="d-flex align-items-center">
+                    <img class="avatar" alt=""  src="./../../../../assets/img/perfil.jpg" width="22" height="22" loading="lazy">
+                    &nbsp;<i> Ivan David Carmona Herrera</i>
+                </div>
+               
+                </small>
+            </a>
+
+        </div>
+    </div>
+  </div>
+
+</section>
+  
+  
+
+
+<!-- <div class="col-12 col-lg-8 " *ngFor="let data of listData">
+  <div class="" (click)="irBlog(data)">
+    <img [src]="data.imagenHeader  | Imagen: 'developer-blog'" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title color-1 ">{{data.title}}</h5>
+        <p class="card-text">{{data.description  | slice : 0 : 40  }}</p>
+    </div>
+  </div>
+</div> -->

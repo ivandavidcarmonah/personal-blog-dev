@@ -3,16 +3,22 @@ import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { DataBlog, DataResponseBlog } from 'src/app/components/class/class-developer-blog';
 import { DesarrolloService } from 'src/app/services/desarrollo.service';
+import { faCoffee, faCubes, faImage, faLaptopCode, faLayerGroup, faPlug, faRobot } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss', './../../../app.component.scss']
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
   public listData: DataBlog[] = [];
-
+  public faCubes = faCubes;
+  public faLayerGroup = faLayerGroup;
+  public faImage = faImage;
+  public faPlug = faPlug;
   constructor(private service: DesarrolloService,private router: Router, private spinner: NgxSpinnerService) { }
+  
+
 
   ngOnInit(): void {
     this.spinner.show();
