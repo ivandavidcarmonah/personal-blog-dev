@@ -1,0 +1,53 @@
+<h3 class="mb-4">Listado de entradas</h3>
+
+
+<div class="table-responsive" *ngIf="listData.length > 0">
+    <table class="table table-striped
+    table-hover	
+    table-borderless
+    table-primary
+    align-middle">
+        <thead class="table-light">
+            <!-- <caption>Data Response</caption> -->
+            <tr>
+                <th>#</th>
+                <th>Titulo</th>
+                <th>Descripcion</th>
+                <th>Fecha Creacion</th>
+                <th>Fecha Actualizacion</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                <tr class="table-light" *ngFor="let item of listData; let i = index">
+                    <td scope="row">{{i}}</td>
+                    <td scope="row">{{item.title}}</td>
+                    <td>{{item.description }}</td>
+                    <td>{{item.creation_date | date:'medium'}}</td>
+                    <td>{{item.update_date | date:'medium'}}</td>
+                    <td class="flex justify-content-center">
+                      <a class="btn btn-warning m-1" (click)="getEdit(item.id)"  role="button">Edit</a>
+                      <a class="btn btn-danger m-1" (click)="deleteItem(item.id)"  role="button">Delete</a>
+                    </td>
+                </tr>
+                
+            </tbody>
+            <tfoot>
+                asddasd
+            </tfoot>
+    </table>
+    
+</div>
+
+<div class="row mt-2">
+    <div class="col-2">
+      <div class="d-grid gap-2">
+        <button type="button" name="" id="" class="btn btn-danger" (click)="returnUrl()">Salir</button>
+      </div>
+    </div>
+    <div class="col-2">
+      <div class="d-grid gap-2">
+        <button type="button" name="" id="" class="btn btn-warning" (click)="nuevaEntrada()">Nueva Entrada</button>
+      </div>
+    </div>
+  </div>

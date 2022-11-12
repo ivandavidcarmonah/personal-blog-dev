@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg bg-nabvar mb-2">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">{{" David Dev  "}}</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title " id="offcanvasNavbarLabel">David Dev</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-center flex-grow-1 pe-3" >
+            <!-- <li class="nav-item d-flex justify-content-center" routerLinkActive="nav-link-active">
+              <a class="nav-link animate__animated animate__pulse" aria-current="page" [routerLink]="['about-me']">About me</a>
+            </li> -->
+            <li class="nav-item d-flex justify-content-center" routerLinkActive="nav-link-active">
+              <a class="nav-link" [routerLink]="['developments']" >Developments  
+                <fa-icon [icon]="faCode"></fa-icon></a>
+            </li>
+            <li class="nav-item d-flex justify-content-center" routerLinkActive="nav-link-active">
+              <a class="nav-link" [routerLink]="['electronics']" >Electronica
+                <fa-icon [icon]="faRobot"></fa-icon>
+              </a>
+            </li>
+
+            <li class="nav-item d-flex justify-content-center pointer" routerLinkActive="nav-link-active">
+              <a class="nav-link " [routerLink]="['contact-me']" >Contacto
+                <fa-icon [icon]="faIdCard"></fa-icon>
+              </a>
+            </li>
+
+            <li class="nav-item d-flex justify-content-center" routerLinkActive="nav-link-active">
+              <a class="nav-link" (click)="navigateBlog()">Blog
+                <fa-icon [icon]="faDoorOpen"></fa-icon>
+              </a>
+            </li>
+
+  
+          
+            
+          </ul>
+        
+        </div>
+  
+      </div>
+    </div>
+  </nav>
+  
+  
+  

@@ -1,0 +1,62 @@
+
+
+body{
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+/* cards */
+.card{
+    cursor: pointer;
+    background: #ffabe288;
+    border: none;
+    filter:brightness(0.5);
+    transition: 0.2s ease-in;
+    img{
+        height: 250px;
+        width: 100%;
+        object-fit: cover;
+        transition: 0.3s ease-out;
+    }
+    .card-title{
+        font-weight: 700;
+        transition: 0.1s;
+    }
+    .card-body>h5{
+        font-weight: 500;
+    }
+    p{
+        font-weight:400;
+        zoom: 1;
+        transition: 0.1s;
+    }
+}
+.card:hover{
+    background: none;
+    filter:none;
+    border-bottom: 5px solid #845dd8;
+    transition: 0.3s ease-out;
+    transform: scale(1.08);
+    img{
+        transform: rotate(2deg);
+        transition: 0.3s ease-out;
+    }
+    .card-body>p {
+        font-weight: 500;
+    }
+    .card-body>h5{
+        font-weight: 900;
+    }
+}
+
+
+@import "./../../node_modules/animatewithsass/animate.scss";
+
+.animated-rigth{
+    @include bounceInRight();
+}
+.animated-left{
+    @include bounceInLeft();
+}

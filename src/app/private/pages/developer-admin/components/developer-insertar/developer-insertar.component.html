@@ -1,0 +1,130 @@
+
+
+<div class="container">
+  <form (ngSubmit)="isDataValid()" [formGroup]="miForm" >
+    <div class="row">
+      
+
+        <div class="col-9">
+            <div class="mb-3">
+              <label for="title" class="form-label">Titulo</label>
+              <input type="text" class="form-control" placeholder="Titulo" id="title"  formControlName="title">
+            </div>
+      
+            <div class="mb-3">
+              <label for="description" class="form-label">Descripcion, max 255 longitud</label>
+              <textarea class="form-control" id="description" rows="3" formControlName="description"></textarea>
+            </div>
+      
+            <div class="mb-3">
+              <label for="content" class="form-label">Contenido</label>
+              <editor formControlName="content"
+              apiKey="fkhxuvhca7l562hosij60ebq8zumyf3qf6aby1ypyvx8s46f" 
+              [init]="{ plugins: 'lists link image table code help wordcount' }"
+            ></editor>
+            
+              <!-- <textarea class="form-control" id="content" rows="3" formControlName="content"></textarea> -->
+            </div>
+      
+            <div class="row">
+              
+              <div class="col-2">
+                <div class="d-grid gap-2">
+                  <button type="button" name="" id="" class="btn btn-danger" (click)="returnUrl()">Volver</button>
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="d-grid gap-2">
+                  <button type="button" name="" id="" class="btn btn-success" (click)="listadoUrl()">Ver listado</button>
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="d-grid gap-2">
+                  <button type="submit" name="" id="" class="btn btn-warning">Guardar</button>
+                </div>
+              </div>
+            </div>
+      
+        </div>
+        
+        <div class="col-3">
+          <div class="mb-4">
+            <label for="imagenHeader" class="form-label">Imagen Header</label>
+            <picture>
+              <img id="imagenHeader" class="img-fluid" alt="image desc" [src]="data.imagenHeader  | Imagen: 'developer-blog'">
+            </picture>
+            <div class="mb-3 mt-3">
+              <label class="form-label text-dark" for="customFile1">Cambiar Imagen</label>
+              <input type="file" accept=".jpg, .png" class="form-control" (change)="onFileSelectedHeader($event)" #fileUploadHeader>
+            </div>
+            <div class="mb-3 mt-3">
+              <a name="" id="" class="btn btn-secondary" (click)="saveImgHeader()" role="button">Guardar Header</a>
+            </div>
+          </div>
+
+          <div class="mb-3 mt-4">
+            <label for="imagenHeader" class="form-label">Imagen Header</label>
+            <picture>
+              <img id="imagenHeader" class="img-fluid" alt="image desc" [src]="data.imagenBody  | Imagen: 'developer-blog'">
+            </picture>
+            <div class="mb-3 mt-3">
+              <label class="form-label text-dark" for="customFile1">Cambiar Imagen</label>
+              <input type="file" accept=".jpg, .png" class="form-control" (change)="onFileSelectedBody($event)" #fileUploadBody>
+            </div>
+            <div class="mb-3 mt-3">
+              <a name="" id="" class="btn btn-secondary" (click)="saveImgBody()" role="button">Guardar Body</a>
+            </div>
+            
+
+          </div>
+          
+        </div>
+
+
+
+    </div>
+
+    <!-- <div class="row">
+      <div class="col-3">
+        <div class="mb-4">
+          <label for="imagenHeader" class="form-label">Imagen Header</label>
+          <picture>
+            <img id="imagenHeader" class="img-fluid" alt="image desc" [src]="data.imagenHeader  | Imagen: 'developer-blog'">
+          </picture>
+          <div class="mb-3 mt-3">
+            <label class="form-label text-dark" for="customFile1">Cambiar Imagen</label>
+            <input type="file" accept=".jpg, .png" class="form-control" (change)="onFileSelectedHeader($event)" #fileUploadHeader>
+          </div>
+          <div class="mb-3 mt-3">
+            <a name="" id="" class="btn btn-secondary" (click)="saveImgHeader()" role="button">Guardar Header</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="mb-3">
+          <label for="imagenHeader" class="form-label">Imagen Header</label>
+          <picture>
+            <img id="imagenHeader" class="img-fluid" alt="image desc" [src]="data.imagenBody  | Imagen: 'developer-blog'">
+          </picture>
+          <div class="mb-3 mt-3">
+            <label class="form-label text-dark" for="customFile1">Cambiar Imagen</label>
+            <input type="file" accept=".jpg, .png" class="form-control" (change)="onFileSelectedBody($event)" #fileUploadBody>
+          </div>
+          <div class="mb-3 mt-3">
+            <a name="" id="" class="btn btn-secondary" (click)="saveImgBody()" role="button">Guardar Body</a>
+          </div>
+          
+
+        </div>
+        
+      </div>
+    </div> -->
+
+  </form>
+
+</div>
+
+
+
+

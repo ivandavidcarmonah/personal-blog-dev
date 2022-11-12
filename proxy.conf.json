@@ -1,0 +1,10 @@
+{
+  "/developer-blog": {
+    "target": "http://localhost:8080",
+    "secure": false
+  },
+  "/photos": {
+      "target": "http://localhost:8080",
+      "secure": false
+  }
+}

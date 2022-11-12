@@ -1,0 +1,30 @@
+
+
+// @import "./../../assets/scss/personalscss/style.scss";
+
+
+.sidebar{
+    background-color: #ebe2e271;
+    padding: 1rem;
+    height: 100vh;
+    border-radius: 0 5px 5px 0px;
+}
+
+.content{
+    height: 100vh;
+}
+.color-bg-1{
+    background-color: #937dc271;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+    /* For tablets: */
+    body{
+        overflow: scroll;
+    }
+    .sidebar{
+        display: none;
+    }
+}

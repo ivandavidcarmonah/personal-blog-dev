@@ -1,0 +1,15 @@
+
+<div class="container mt-2" >
+    
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 animated-rigth">
+      <div class="col animate__animated animate__backInRight" *ngFor="let data of listData">
+        <div class="card" (click)="irBlog(data)">
+          <img [src]="data.imagenHeader  | Imagen: 'developer-blog'" class="card-img-top" alt="...">
+          <div class="card-body">
+              <h5 class="card-title color-1 ">{{data.title}}</h5>
+              <p class="card-text">{{data.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
