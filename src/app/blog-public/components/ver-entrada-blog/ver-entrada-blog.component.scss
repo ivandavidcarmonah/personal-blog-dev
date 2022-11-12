@@ -13,3 +13,28 @@ content{
     font-family: 'Times New Roman', Times, serif;
     font-size: larger
 }
+
+.list-group{
+    // overflow-y: scroll;
+    border: 1px solid #0000004d;
+    border-radius: 0;
+    border-top: none;
+    border-bottom: 0;
+    border-right: 0;
+    a{
+        background-color: #ffc10700;
+        border: none;
+        transition: 0.2s;
+        div>h5{
+            font-weight: 700;
+        }
+    }
+    a:hover{
+        background-color:#FFC107;
+        transition: 0.2s;
+        div>h5{
+            color: #000000;
+            font-weight: 700;
+        }
+    }
+}

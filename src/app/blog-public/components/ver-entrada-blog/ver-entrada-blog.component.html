@@ -29,19 +29,30 @@
         
        
         <div class="col-12 col-lg-3 col-xl-3">
-            <div class="list-group">
+            <div class="list-group  position-fixed">
                 <a (click)="irBlog(data)" class="list-group-item list-group-item-action pointer" aria-current="true" *ngFor="let data of listData">
                   <div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-1">{{data.title}}</h5>
                     <small>{{data.creation_date | date: 'shortDate'}}</small>
                   </div>
+
+
                   <p class="mb-1">{{data.description  | slice : 0 : 25  }}</p>
-                  <small>Autor: <i>Ivan David Carmona Herrera</i></small>
+                  <small>
+                    <div class="d-flex align-items-center">
+                        <img class="avatar" alt=""  src="./../../../../assets/img/perfil.jpg" width="22" height="22" loading="lazy">
+                        &nbsp;<i> Ivan David Carmona Herrera</i>
+                    </div>
+                   
+                    </small>
                 </a>
+
             </div>
         </div>
     </div>
 </div>
+
+
    
 
 
