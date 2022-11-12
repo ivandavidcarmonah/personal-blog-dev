@@ -18,7 +18,11 @@ const routes: Routes = [
       {
         path: ':id',
         component: VerEntradaBlogComponent
-      }
+      },
+      {
+        path: '**',
+        component: HomeComponent
+      },
     ]
   },
 

@@ -37,7 +37,8 @@
             ],
             "styles": [
               "src/styles.scss",
-              "./node_modules/animatewithsass/animate.scss"
+              "./node_modules/animatewithsass/animate.scss",
+              "./node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "scripts": [
             ]

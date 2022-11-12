@@ -6,6 +6,7 @@ import { VerEntradaBlogComponent } from './components/ver-entrada-blog/ver-entra
 import {  NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 import { GetImagen } from './pipes/get-files';
 import { HomeComponent } from './components/home/home.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 
@@ -24,3 +25,8 @@ import { HomeComponent } from './components/home/home.component';
   ]
 })
 export class BlogModule { }
+
+
+interface NgxSpinnerConfig {
+  type?: string;
+}

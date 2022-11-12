@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { DataBlog, DataResponseBlog } from 'src/app/components/class/class-developer-blog';
 import { DeveloperAdminService } from 'src/app/private/pages/developer-admin/developer-admin.service';
 
@@ -15,10 +16,11 @@ export class VerEntradaBlogComponent implements OnInit {
   public data!: DataBlog;
   public listData: DataBlog[] = [];
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router,  private service: DeveloperAdminService) { }
+  constructor(private activatedRoute: ActivatedRoute, private router: Router,  private service: DeveloperAdminService,  private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(res => {
+      this.spinner.show();
       this.getId(res['id']);
     });
   }
@@ -33,6 +35,9 @@ export class VerEntradaBlogComponent implements OnInit {
         this.listData = res.dataList.filter(element => {
           return this.data.id !== element.id
         });
+        setTimeout(() => {
+          this.spinner.hide();
+        }, 1000);
       })
     })
   }

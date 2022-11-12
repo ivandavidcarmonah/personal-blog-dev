@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { NgbDropdownModule, NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './navbar/navbar.component';
 import { BaseBlogComponent } from './base-blog/base-blog.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 
@@ -18,6 +19,8 @@ import { BaseBlogComponent } from './base-blog/base-blog.component';
     FormsModule,
     NgbDropdownModule,
     NgbCollapseModule,
+    NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' })
+
   ],
   providers: [
 

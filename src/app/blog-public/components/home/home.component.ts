@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { DataBlog, DataResponseBlog } from 'src/app/components/class/class-developer-blog';
 import { DesarrolloService } from 'src/app/services/desarrollo.service';
 
@@ -11,15 +12,19 @@ import { DesarrolloService } from 'src/app/services/desarrollo.service';
 export class HomeComponent implements OnInit {
   public listData: DataBlog[] = [];
 
-  constructor(private service: DesarrolloService,private router: Router) { }
+  constructor(private service: DesarrolloService,private router: Router, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
+    this.spinner.show();
     this.getDesarrollos();
   }
 
   getDesarrollos(){
     this.service.getDevelopersBlogList().subscribe((res:DataResponseBlog) => {
       this.listData = res.dataList;
+      setTimeout(() => {
+        this.spinner.hide();
+      }, 1000);
     })
   }
 
