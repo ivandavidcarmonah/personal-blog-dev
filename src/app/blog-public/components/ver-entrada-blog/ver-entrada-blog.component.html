@@ -2,20 +2,19 @@
 <div class="w-100 ">
     <!-- <img src="..." class="img-thumbnail" alt="..."> -->
     <div class="row justify-content-center">
-        <div class="col-12 col-lg-8 col-xl-8">
-            <h1>{{data.title}} </h1>
-
-   
+        <div class="col-12 col-lg-7 col-xl-8">
+            <h1 class="">{{data.title}} </h1>
             <p class="text-muted">
                 {{data.description}}
-                ¿Qué tiene exactamente esta controversial, agresiva e indispensable aplicación para taxis que molesta a tanta gente? (Una pista: no es la intimidación, el machismo o el aumento de sus precios.)
             </p>
             <div class="d-flex flex-row bd-highlight mb-3 ms-1">
                 <div class="mr-2">
-                    <img alt=""  src="https://miro.medium.com/fit/c/60/60/1*s3RGmQX0Sv1O7n5DI7nu5w.jpeg" width="48" height="48" loading="lazy">
+                    <img class="avatar" alt=""  src="./../../../../assets/img/perfil.jpg" width="48" height="48" loading="lazy">
                 </div>
                 <div >
-                    <span>by <strong>Ivan David Carmona Herrera</strong></span>
+                    <span>by <strong>Ivan David Carmona Herrera</strong> 
+                        - <small>{{data.creation_date | date: 'medium'}}</small>
+                    </span>
                     <br>
                     <i>Post rating: </i><ngb-rating [(rate)]="selected" (hover)="hovered=$event" (leave)="hovered=0" [readonly]="readonly"></ngb-rating>
                 </div>
@@ -24,15 +23,25 @@
                 <img alt="" class="rounded" width="700" height="350" loading="eager" role="presentation" [src]="data.imagenHeader  | Imagen: 'developer-blog'">
             </div>
             <hr />
-              <p [innerHtml]="data.content"></p>
+            <content [innerHtml]="data.content"></content>
 
         </div>
         
-        <div class="col-12 col-lg-2 col-xl-2">
-
-        </div>
+       
+        <div class="col-12 col-lg-3 col-xl-3">
+            <div class="list-group">
+                <a (click)="irBlog(data)" class="list-group-item list-group-item-action pointer" aria-current="true" *ngFor="let data of listData">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">{{data.title}}</h5>
+                    <small>{{data.creation_date | date: 'shortDate'}}</small>
+                  </div>
+                  <p class="mb-1">{{data.description  | slice : 0 : 25  }}</p>
+                  <small>Autor: <i>Ivan David Carmona Herrera</i></small>
+                </a>
+            </div>
         </div>
     </div>
+</div>
    
 
 

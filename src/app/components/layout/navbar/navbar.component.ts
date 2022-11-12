@@ -24,4 +24,8 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/admin-site'])
   }
 
+  irBlog(){
+    console.log('navegar a blog')
+    this.router.navigate([`/blog-public`])
+  }
 }

@@ -5,13 +5,15 @@ import { LayoutModule } from './layout/layout.module';
 import { VerEntradaBlogComponent } from './components/ver-entrada-blog/ver-entrada-blog.component';
 import {  NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 import { GetImagen } from './pipes/get-files';
+import { HomeComponent } from './components/home/home.component';
 
 
 
 @NgModule({
   declarations: [
     VerEntradaBlogComponent,
-    GetImagen
+    GetImagen,
+    HomeComponent
   ],
   imports: [
     CommonModule,

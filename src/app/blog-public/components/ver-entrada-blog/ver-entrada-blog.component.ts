@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DataBlog } from 'src/app/components/class/class-developer-blog';
+import { DataBlog, DataResponseBlog } from 'src/app/components/class/class-developer-blog';
 import { DeveloperAdminService } from 'src/app/private/pages/developer-admin/developer-admin.service';
 
 @Component({
@@ -13,6 +13,7 @@ export class VerEntradaBlogComponent implements OnInit {
 	hovered = 0;
 	readonly = true;
   public data!: DataBlog;
+  public listData: DataBlog[] = [];
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router,  private service: DeveloperAdminService) { }
 
@@ -27,7 +28,27 @@ export class VerEntradaBlogComponent implements OnInit {
     this.service.getById(id).subscribe( res => {
       console.log(res)
       this.data = {...res};
+     this.resetScroll();
+      this.service.getDevelopersBlogList().subscribe((res:DataResponseBlog) => {
+        this.listData = res.dataList.filter(element => {
+          return this.data.id !== element.id
+        });
+      })
     })
+  }
+  resetScroll() {
+    window.scroll({ 
+      top: 0, 
+      left: 0, 
+      behavior: 'smooth' 
+    });
+  }
+  irBlog(data:DataBlog){
+    this.router.navigate([`/blog-public/${data.id}`])
+  }
+
+  getDesarrollos(){
+    
   }
 
 }
