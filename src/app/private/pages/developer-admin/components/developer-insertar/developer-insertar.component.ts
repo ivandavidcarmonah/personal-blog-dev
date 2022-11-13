@@ -73,15 +73,13 @@ export class DeveloperInsertarComponent implements OnInit {
   }
 
   saveData() {
-    console.log(this.data)
+    // console.log(this.data)
     if (this.data.id != undefined) {
       this.updateObject();
     }
     else {
       this.newObject();
     }
-    
-
   }
 
   newObject(){
@@ -109,6 +107,7 @@ export class DeveloperInsertarComponent implements OnInit {
       }
     });
   }
+
   updateObject() {
     this.service.updateData(this.data).subscribe({
       next: (res) => {
@@ -170,7 +169,7 @@ export class DeveloperInsertarComponent implements OnInit {
           icon: 'success',
           title: 'Your work has been UPDATE',
           showConfirmButton: false,
-          timer: 1500
+          timer: 3000
         })      
       }
     });

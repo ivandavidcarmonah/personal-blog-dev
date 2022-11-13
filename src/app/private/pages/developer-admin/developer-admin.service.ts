@@ -1,10 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { request } from 'http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { DataBlog, DataResponseBlog } from './class/class-developer-blog';
-import { IDataResponse, IDataValues, IDeveloperAdmin } from './interface/admin-developer';
+import { IDeveloperAdmin } from './interface/admin-developer';
 
 @Injectable({
   providedIn: 'root'
@@ -82,15 +81,13 @@ export class DeveloperAdminService {
   saveImgHeader(multipartFile: File, id: any) {
     let formdata = new FormData();
     formdata.append('file', multipartFile);
-    return this.http.post<any>(`http://localhost:8080/api/developer-blog/save-file/header/${id}`, formdata, {'headers': this.headers})
+    return this.http.post<any>(`http://localhost:8080/api/developer-blog/save-file/header/${id}`,formdata)
   }
 
   saveImgBody(multipartFile: File, id: any) {
     let formdata = new FormData();
     formdata.append('file', multipartFile);
-    return this.http.post<any>(`http://localhost:8080/api/developer-blog/save-file/body/${id}`, formdata, {'headers': this.headers})
+    return this.http.post<any>(`http://localhost:8080/api/developer-blog/save-file/body/${id}`, formdata)
   }
-
-
   
 }

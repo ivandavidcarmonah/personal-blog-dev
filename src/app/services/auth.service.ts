@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { JWTAuthResponseDTO, UserDTO } from '../private/class/user-class';
 import { map, catchError } from "rxjs/operators";
 import {  of, tap } from "rxjs";
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class AuthService {
     return {...this.user}
   }
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
 
   login(email: string, password: string){
@@ -43,6 +44,15 @@ export class AuthService {
         catchError(err => of(false))
       );
   }
+
+  salir() {
+    localStorage.removeItem('tokenAcces');
+    localStorage.removeItem('tokenType');
+
+    this.router.navigate(['admin-site'])
+
+  }
+
 
 
   

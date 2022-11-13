@@ -32,4 +32,8 @@ export class AuthComponent implements OnInit {
     }
   }
 
+  irBlogHome(){
+    this.router.navigate([`blog-public/`])
+  }
+
 }

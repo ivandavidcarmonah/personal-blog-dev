@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
@@ -8,9 +9,12 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class BaseBlogComponent implements OnInit {
 
-  constructor(private spinner: NgxSpinnerService) { }
+  constructor(private spinner: NgxSpinnerService, private router: Router) { }
 
   ngOnInit(): void {
+  }
+  irContacme(){
+    this.router.navigate(['personal/contact-me']);
   }
 
 }

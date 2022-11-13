@@ -62,7 +62,7 @@ export class DeveloperListadosComponent implements OnInit {
             this.ngOnInit();
           },
           error: (err:any) => {
-            console.log(JSON.stringify(err.error));
+            this.ngOnInit();
             Swal.fire({
               position: 'top-end',
               icon: 'success',

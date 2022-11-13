@@ -21,8 +21,8 @@
             <tbody class="table-group-divider">
                 <tr class="table-light" *ngFor="let item of listData; let i = index">
                     <td scope="row">{{i}}</td>
-                    <td scope="row">{{item.title}}</td>
-                    <td>{{item.description }}</td>
+                    <td scope="row">{{item.title | slice: 0:30  }}</td>
+                    <td>{{item.description | slice: 0:30  }}</td>
                     <td>{{item.creation_date | date:'medium'}}</td>
                     <td>{{item.update_date | date:'medium'}}</td>
                     <td class="flex justify-content-center">
