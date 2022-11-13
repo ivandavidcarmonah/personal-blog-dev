@@ -8,40 +8,7 @@ import { IDesarrollo } from 'src/app/interfaces/desarrollo.interface';
 })
 export class ElectronicsComponent implements OnInit {
 
-  public desarrollos: IDesarrollo [] = [
-    {
-      title: 'Salware Education Sl',
-      description: 'Desarrollo de plataforma eduvativa en Java, Spring Boot, Angular +8',
-      image: 'salware.png'
-    },
-    {
-      title: 'Gestion de Reservas Bar',
-      description: 'Gestionar reservas desde aplicacion Web utilizando el framework de Angular +13',
-      image: 'reservas.png'
-    },{
-      title: 'Salware Education Sl',
-      description: 'Desarrollo de plataforma eduvativa en Java, Spring Boot, Angular +8',
-      image: 'salware.png'
-    },
-    {
-      title: 'Gestion de Reservas Bar',
-      description: 'Gestionar reservas desde aplicacion Web utilizando el framework de Angular +13',
-      image: 'reservas.png'
-    },
-    
-    {
-      title: 'Gestion de Reservas Bar',
-      description: 'Gestionar reservas desde aplicacion Web utilizando el framework de Angular +13',
-      image: 'reservas.png'
-    },
-    
-    {
-      title: 'Gestion de Reservas Bar',
-      description: 'Gestionar reservas desde aplicacion Web utilizando el framework de Angular +13',
-      image: 'reservas.png'
-    }
-
-  ]
+  public desarrollos!: IDesarrollo [];
 
 
   constructor() { }
