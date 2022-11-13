@@ -12,12 +12,16 @@ import { IDataResponse, IDataValues, IDeveloperAdmin } from './interface/admin-d
 export class DeveloperAdminService {
   
 
-  public headers = new HttpHeaders().set('content-type', 'application/json')
-                                    .set('Access-Control-Allow-Origin', '*');
+  private headers = new HttpHeaders().set('content-type', 'application/json')
+                                    .set('Access-Control-Allow-Origin', '*')
+                                    .set('Authorization' , localStorage.getItem('tokenType')  +  ' ' +localStorage.getItem('tokenAcces') );
   constructor(private http: HttpClient) { }
 
   getDevelopersBlogList(): Observable<DataResponseBlog>{
-    return this.http.get<DataResponseBlog>('http://localhost:8080/api/developer-blog/list')
+
+ 
+
+    return this.http.get<DataResponseBlog>('http://localhost:8080/api/developer-blog/list', {'headers': this.headers})
       .pipe( 
         map(
           (res:DataResponseBlog) => {
@@ -28,6 +32,8 @@ export class DeveloperAdminService {
   }
 
   saveData(data: IDeveloperAdmin): Observable<DataBlog>{
+    const headers = new HttpHeaders().
+    set('tokenType', localStorage.getItem('tokenType') || '')
     const body: IDeveloperAdmin = {
       content: data.content,
       description: data.description,
@@ -58,7 +64,7 @@ export class DeveloperAdminService {
   }
 
   getById(id: number): Observable<DataBlog> {
-    return this.http.get<DataBlog>(`http://localhost:8080/api/developer-blog/${id}`)
+    return this.http.get<DataBlog>(`http://localhost:8080/api/developer-blog/${id}`, {'headers': this.headers})
       .pipe( 
         map(
           (res:DataBlog) => {
@@ -69,20 +75,20 @@ export class DeveloperAdminService {
   }
 
   deleteId(id: number){
-    return this.http.delete<any>(`http://localhost:8080/api/developer-blog/delete/${id}`);
+    return this.http.delete<any>(`http://localhost:8080/api/developer-blog/delete/${id}`, {'headers': this.headers});
       
   }
  
   saveImgHeader(multipartFile: File, id: any) {
     let formdata = new FormData();
     formdata.append('file', multipartFile);
-    return this.http.post<any>(`http://localhost:8080/api/developer-blog/save-file/header/${id}`, formdata)
+    return this.http.post<any>(`http://localhost:8080/api/developer-blog/save-file/header/${id}`, formdata, {'headers': this.headers})
   }
 
   saveImgBody(multipartFile: File, id: any) {
     let formdata = new FormData();
     formdata.append('file', multipartFile);
-    return this.http.post<any>(`http://localhost:8080/api/developer-blog/save-file/body/${id}`, formdata)
+    return this.http.post<any>(`http://localhost:8080/api/developer-blog/save-file/body/${id}`, formdata, {'headers': this.headers})
   }
 
 

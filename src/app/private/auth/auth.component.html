@@ -1,0 +1,30 @@
+
+<form (ngSubmit)="login()" [formGroup]="miForm">
+
+    <div class="container ">
+        <div class="row d-flex justify-content-center mt-4">
+            <div class="col-12 mb-4">
+                <h1>Admin Site</h1>
+            </div>
+
+                <div class="col-12 col-lg-3 col-xl-3 mt-4">
+                    <div class="mb-3 ">
+                        <label for="Email" class="form-label">Email</label>
+                        <input type="email" class="form-control" formControlName="email" id="Email" placeholder="Email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="Password" class="form-label">Password</label>
+                        <input type="password" class="form-control" formControlName="password" id="Password" placeholder="Password">
+                    </div>
+                    <div class="mb-3 ">
+                        <div class="d-grid gap-2">
+                            <button type="submit" name="" id="" class="btn btn-warning btn-block">Login</button>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+</form>
+
+<!-- <router-outlet></router-outlet>  -->

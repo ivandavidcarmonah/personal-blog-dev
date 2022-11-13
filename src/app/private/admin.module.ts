@@ -6,6 +6,9 @@ import { AdminSiteComponent } from './admin-site.component';
 import { LayoutModule } from './layout/layout.module';
 import { DeveloperAdminComponent } from './pages/developer-admin/developer-admin.component';
 import { QuillModule } from 'ngx-quill';
+import { AuthComponent } from './auth/auth.component';
+import { AuthGuard } from './core/guard/auth.guard';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -14,9 +17,10 @@ import { QuillModule } from 'ngx-quill';
     CommonModule,
     AppAdminRoutingModule,
     LayoutModule,
+    HttpClientModule
   ],
   providers: [
-   
+    AuthGuard
   ]
 })
 export class AdminModule { }
