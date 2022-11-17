@@ -4,6 +4,7 @@ import { JWTAuthResponseDTO, UserDTO } from '../private/class/user-class';
 import { map, catchError } from "rxjs/operators";
 import {  of, tap } from "rxjs";
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +26,8 @@ export class AuthService {
       usernameOrEmail: email, 
       password: password
     }
-    return this.http.post<JWTAuthResponseDTO>(`http://localhost:8080/api/auth/login`, body)
+
+    return this.http.post<JWTAuthResponseDTO>(`${environment.BASEURL}auth/login`, body)
       .pipe(
         tap( res => {
           if(res.ok){

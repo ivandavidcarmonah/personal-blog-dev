@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { DataBlog, DataResponseBlog } from 'src/app/components/class/class-developer-blog';
 import { DeveloperAdminService } from 'src/app/private/pages/developer-admin/developer-admin.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-ver-entrada-blog',
@@ -10,6 +11,7 @@ import { DeveloperAdminService } from 'src/app/private/pages/developer-admin/dev
   styleUrls: ['./ver-entrada-blog.component.scss']
 })
 export class VerEntradaBlogComponent implements OnInit {
+  img_rute = environment.WEB_DEVELOPER.GET_IMAGEN;
 	selected = 7;
 	hovered = 0;
 	readonly = true;

@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from 'rxjs';
 import { DataResponseBlog } from '../components/class/class-developer-blog';
 import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,11 +14,11 @@ export class DesarrolloService {
 
 
   getDesarrollos(): Observable<any>{
-    return this.http.get('http://localhost:8080/api/publication/list-publications');
+    return this.http.get(`${environment.BASEURL}${environment.WEB_DEVELOPER.GET_LIST}`);
   }
 
   getDevelopersBlogList(): Observable<DataResponseBlog>{
-    return this.http.get<DataResponseBlog>('http://localhost:8080/api/developer-blog/list')
+    return this.http.get<DataResponseBlog>(`${environment.BASEURL}${environment.WEB_DEVELOPER.GET_LIST}`)
       .pipe( 
         map(
           (res:DataResponseBlog) => {

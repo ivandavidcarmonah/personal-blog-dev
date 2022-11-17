@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { DataBlog, DataResponseBlog } from './class/class-developer-blog';
 import { IDeveloperAdmin } from './interface/admin-developer';
 
@@ -20,7 +21,7 @@ export class DeveloperAdminService {
 
  
 
-    return this.http.get<DataResponseBlog>('http://localhost:8080/api/developer-blog/list', {'headers': this.headers})
+    return this.http.get<DataResponseBlog>(`${environment.BASEURL}${environment.WEB_DEVELOPER.GET_LIST}`, {'headers': this.headers})
       .pipe( 
         map(
           (res:DataResponseBlog) => {
@@ -38,7 +39,7 @@ export class DeveloperAdminService {
       description: data.description,
       title: data.title
     }
-    return this.http.post<DataBlog>('http://localhost:8080/api/developer-blog/new', body, {'headers': this.headers})
+    return this.http.post<DataBlog>(`${environment.BASEURL}${environment.WEB_DEVELOPER.INSERT}`, body, {'headers': this.headers})
       .pipe( 
         map(
           (res:DataBlog) => {
@@ -54,7 +55,7 @@ export class DeveloperAdminService {
       description: data.description,
       title: data.title
     }
-    return this.http.put<DataBlog>(`http://localhost:8080/api/developer-blog/update/${data.id}`, body, {'headers': this.headers}).pipe(
+    return this.http.put<DataBlog>(`${environment.BASEURL}${environment.WEB_DEVELOPER.UPDATE}${data.id}`, body, {'headers': this.headers}).pipe(
       (res: any) => {
         console.log(res)
         return res;
@@ -63,7 +64,7 @@ export class DeveloperAdminService {
   }
 
   getById(id: number): Observable<DataBlog> {
-    return this.http.get<DataBlog>(`http://localhost:8080/api/developer-blog/${id}`, {'headers': this.headers})
+    return this.http.get<DataBlog>(`${environment.BASEURL}${environment.WEB_DEVELOPER.GET}${id}`, {'headers': this.headers})
       .pipe( 
         map(
           (res:DataBlog) => {
@@ -74,20 +75,20 @@ export class DeveloperAdminService {
   }
 
   deleteId(id: number){
-    return this.http.delete<any>(`http://localhost:8080/api/developer-blog/delete/${id}`, {'headers': this.headers});
+    return this.http.delete<any>(`${environment.BASEURL}${environment.WEB_DEVELOPER.DELETE}${id}`, {'headers': this.headers});
       
   }
  
   saveImgHeader(multipartFile: File, id: any) {
     let formdata = new FormData();
     formdata.append('file', multipartFile);
-    return this.http.post<any>(`http://localhost:8080/api/developer-blog/save-file/header/${id}`,formdata)
+    return this.http.post<any>(`${environment.BASEURL}${environment.WEB_DEVELOPER.SAVE_IMAGEN_HEADER}${id}`,formdata)
   }
 
   saveImgBody(multipartFile: File, id: any) {
     let formdata = new FormData();
     formdata.append('file', multipartFile);
-    return this.http.post<any>(`http://localhost:8080/api/developer-blog/save-file/body/${id}`, formdata)
+    return this.http.post<any>(`${environment.BASEURL}${environment.WEB_DEVELOPER.SAVE_IMAGEN_BODY}${id}`, formdata)
   }
   
 }

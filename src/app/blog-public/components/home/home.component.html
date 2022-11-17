@@ -51,7 +51,7 @@
         <div class="card mb-3 w-100 " *ngFor="let data of listData">
           <div class="row">
             <div class="col-12 col-xl-3 img-container ">
-              <img [src]="data.imagenHeader  | Imagen: 'developer-blog'" class="rounded-start" alt="{{data.title}} "  (click)="irBlog(data)">
+              <img [src]="data.imagenHeader  | Imagen: img_rute" class="rounded-start" alt="{{data.title}} "  (click)="irBlog(data)">
             </div>
             <div class="col-12 col-xl-9 ">
                 <h5 class="card-title" (click)="irBlog(data)">{{data.title}}</h5>

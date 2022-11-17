@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { faCode } from '@fortawesome/free-solid-svg-icons';
 import { IDesarrollo } from 'src/app/interfaces/desarrollo.interface';
 import { DesarrolloService } from 'src/app/services/desarrollo.service';
+import { environment } from 'src/environments/environment';
 import { DataBlog, DataResponseBlog } from '../class/class-developer-blog';
 
 @Component({
@@ -12,6 +13,7 @@ import { DataBlog, DataResponseBlog } from '../class/class-developer-blog';
 })
 export class DevelopmentsComponent implements OnInit {
   public listData: DataBlog[] = [];
+  img_rute = environment.WEB_DEVELOPER.GET_IMAGEN;
 
  
 

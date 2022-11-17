@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, ParamMap, Route, Router } from '@angular/router';
 import { error } from 'console';
+import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2';
 import { DataBlog } from '../../class/class-developer-blog';
 import { DeveloperAdminService } from '../../developer-admin.service';
@@ -16,6 +17,7 @@ import { IDeveloperAdmin } from '../../interface/admin-developer';
   styleUrls: ['./developer-insertar.component.scss']
 })
 export class DeveloperInsertarComponent implements OnInit {
+  img_rute = environment.WEB_DEVELOPER.GET_IMAGEN;
 
   public miForm: FormGroup = this.fb.group({
     title: new FormControl('', [Validators.required, Validators.minLength(2)]),
